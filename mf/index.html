@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <script src="https://unpkg.com/single-spa"></script>
-  <script src="flutter.js" defer></script>
+  <head>
+    <script src="https://unpkg.com/single-spa"></script>
+    
+    <script src="flutter.js" defer></script>
+  </head>
 
   <body>
     <script>
      
 
-    const serviceWorkerVersion = "605002923";
+    const serviceWorkerVersion = "2236727339";
       
      
     window.addEventListener('load', function() {
@@ -22,15 +25,22 @@
         },
         onEntrypointLoaded: async function(engineInitializer) {
           // Initialize the Flutter engine
+          try {
           let appRunner = await engineInitializer.initializeEngine();
           // Run the app
-          await appRunner.runApp();
+
+            await appRunner.runApp();
+          } catch (e) {
+            console.log(e)
+          }
         }
       });
-    }
-      
+   }
 
-    const app = {
+
+
+     
+  const app = {
   // Optional
   async bootstrap(props) {
     console.log("App is initializing!", props);
@@ -38,7 +48,7 @@
   // Required
   async mount(props) {
     console.log("App is mounting", props);
-    loader('./base_app/main.dart.js')
+    loader('./base_app/main.dart.js',)
   },
   // Required
   async unmount(props) {
@@ -100,16 +110,13 @@ const app3 = {
     x.remove()
   },
 };
-
-
-
-singleSpa.registerApplication({name: 'Flutter APP', app, activeWhen: "/",  customProps(location) {return true}});
+  singleSpa.registerApplication({name: 'Flutter APP', app, activeWhen: "/",  customProps(location) {return true}});
       singleSpa.registerApplication({name: 'Group one Service one', app:app1, activeWhen: "/grouponeservieone",  customProps(location) {return true}});
       singleSpa.registerApplication({name: 'Group Two service One', app:app2, activeWhen: "/grouptwoserviceone",  customProps(location) {return true}});
       singleSpa.registerApplication({name: 'Group three SErvice one', app:app3, activeWhen: "/groupthreeserviceone",  customProps(location) {return true}});
       singleSpa.start();
-} );
-
+      
+  })
 
      
     </script>

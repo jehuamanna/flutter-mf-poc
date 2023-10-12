@@ -36,5 +36,5 @@ cp -r ../base_app/build/web base_app
 cp -r ../g1s1/build/web grouponeservieone
 cp -r ../g2s1/build/web grouptwoserviceone
 cp -r ../g3s1/build/web groupthreeserviceone
-cp -r ../mf/* .
+cp -r ../mf/index.html base_app
 cd ..
