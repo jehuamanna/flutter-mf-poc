@@ -35,7 +35,8 @@ class _OpenURLState extends State<OpenURL> {
         child: Text('Button'),
         onPressed: () {
           // js.context.callMethod('open', [widget.url, "_self"]);
-          html.window.history.pushState(null, '', widget.url);
+          Future.delayed(Duration(milliseconds: 100),
+              () => html.window.history.pushState({}, '', widget.url));
         },
       ),
     );
