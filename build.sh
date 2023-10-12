@@ -1,27 +1,27 @@
 cd g1s1
 flutter pub get
-flutter build web
+flutter build web --pwa-strategy=none
 # cp ../post_build.dart .
 # dart post_build.dart
 cd ..
 
 cd g2s1
-flutter build web
 flutter pub get
+flutter build web --pwa-strategy=none
 # cp ../post_build.dart .
 # dart post_build.dart
 cd ..
 
 cd g3s1
-flutter build web
 flutter pub get
+flutter build web --pwa-strategy=none
 # cp ../post_build.dart .
 # dart post_build.dart
 cd ..
 
 cd base_app
-flutter build web
 flutter pub get
+flutter build web --pwa-strategy=none
 # cp ../post_build.dart .
 # dart post_build.dart
 cd ..

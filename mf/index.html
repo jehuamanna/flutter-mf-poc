@@ -10,7 +10,7 @@
     <script>
      
 
-    const serviceWorkerVersion = "2236727339";
+    const serviceWorkerVersion = null;
       
      
     window.addEventListener('load', function() {
@@ -40,7 +40,11 @@
 
 
      
-  const app = {
+  const singleSpaFlutter = ({basePath}) => {
+    
+    
+    
+    return ({
   // Optional
   async bootstrap(props) {
     console.log("App is initializing!", props);
@@ -48,7 +52,7 @@
   // Required
   async mount(props) {
     console.log("App is mounting", props);
-    loader('main.dart.js',)
+    loader(basePath + 'main.dart.js',)
   },
   // Required
   async unmount(props) {
@@ -56,64 +60,24 @@
     const x = document.querySelector("flt-glass-pane")
     x.remove()
   },
-};
-const app1 = {
-  // Optional
-  async bootstrap(props) {
-    console.log("App2 is initializing!", props);
-  },
-  // Required
-  async mount(props) {
-    console.log("App2 is mounting", props);
-    loader('g1s1/main.dart.js')
-  },
-  // Required
-  async unmount(props) {
-    console.log("App2 is unmounting", props);
-    const x = document.querySelector("flt-glass-pane")
-    x.remove()
-  },
-};
+})};
 
-const app2 = {
-  // Optional
-  async bootstrap(props) {
-    console.log("App3 is initializing!", props);
-  },
-  // Required
-  async mount(props) {
-    console.log("App3 is mounting", props);
-    loader('g2s1/main.dart.js')
-  },
-  // Required
-  async unmount(props) {
-    console.log("App3 is unmounting", props);
-    const x = document.querySelector("flt-glass-pane")
-    x.remove()
-  },
-};
+const app = singleSpaFlutter({basePath: "/"})
+const app1 = singleSpaFlutter({basePath: "http://localhost:3000/grouponeservieone/"})
+const app2 = singleSpaFlutter({basePath: "http://localhost:3000/grouptwoserviceone/"})
+const app3 = singleSpaFlutter({basePath: "http://localhost:3000/groupthreeserviceone/"})
 
-const app3 = {
-  // Optional
-  async bootstrap(props) {
-    console.log("App4 is initializing!", props);
-  },
-  // Required
-  async mount(props) {
-    console.log("App4 is mounting", props);
-    loader('g3s1/main.dart.js')
-  },
-  // Required
-  async unmount(props) {
-    console.log("App4 is unmounting", props);
-    const x = document.querySelector("flt-glass-pane")
-    x.remove()
-  },
-};
-  singleSpa.registerApplication({name: 'Flutter APP', app, activeWhen: "/",  customProps(location) {return true}});
-      singleSpa.registerApplication({name: 'Group one Service one', app:app1, activeWhen: "/grouponeservieone",  customProps(location) {return true}});
-      singleSpa.registerApplication({name: 'Group Two service One', app:app2, activeWhen: "/grouptwoserviceone",  customProps(location) {return true}});
-      singleSpa.registerApplication({name: 'Group three SErvice one', app:app3, activeWhen: "/groupthreeserviceone",  customProps(location) {return true}});
+
+// const app = singleSpaFlutter({basePath: "/"})
+// const app1 = singleSpaFlutter({basePath: "/"})
+// const app2 = singleSpaFlutter({basePath: "/"})
+// const app3 = singleSpaFlutter({basePath: "/"})
+
+
+      singleSpa.registerApplication({name: 'Flutter APP', app, activeWhen: "/",  customProps(location) {return false}});
+      singleSpa.registerApplication({name: 'Group one Service one', app:app1, activeWhen: "/grouponeservieone",  customProps(location) {return false}});
+      singleSpa.registerApplication({name: 'Group Two service One', app:app2, activeWhen: "/grouptwoserviceone",  customProps(location) {return false}});
+      singleSpa.registerApplication({name: 'Group three SErvice one', app:app3, activeWhen: "/groupthreeserviceone",  customProps(location) {return false}});
       singleSpa.start();
       
   })

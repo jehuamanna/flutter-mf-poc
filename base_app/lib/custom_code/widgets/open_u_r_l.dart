@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-import 'dart:js' as js;
+import 'dart:html' as html;
 
 class OpenURL extends StatefulWidget {
   const OpenURL({
@@ -34,7 +34,8 @@ class _OpenURLState extends State<OpenURL> {
       child: ElevatedButton(
         child: Text('Button'),
         onPressed: () {
-          js.context.callMethod('open', [widget.url, "_self"]);
+          // js.context.callMethod('open', [widget.url, "_self"]);
+          html.window.history.pushState(null, '', widget.url);
         },
       ),
     );
