@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    Fore more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+  -->
+  <base href="/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="BaseApp">
+
+  
+
+  <meta name="robots" content="noindex" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <!-- Open Graph & SEO tags -->
+  <meta property="og:title" content="BaseApp" />
+  <meta property="og:description" content="Built with FlutterFlow." />
+  <meta property="og:image" content="https://storage.googleapis.com/flutterflow-prod-hosting/og_splash_gradient.png" /> 
+  <meta name="twitter:title" content="BaseApp" />
+  <meta name="twitter:description" content="Built with FlutterFlow." />
+  <meta name="twitter:image" content="https://storage.googleapis.com/flutterflow-prod-hosting/og_splash_gradient.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <title> BaseApp </title>
+  <meta name="description" content="Built with FlutterFlow." />
+    
+
+  <!-- Status Bar color in Safari browser (iOS) and PWA -->
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f1f4f8">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#1d2428">
+  <script src="https://unpkg.com/single-spa"></script>
+
+  <link rel="manifest" href="manifest.json">
+  <script>
+    // The value below is injected by flutter build, do not touch.
+    const serviceWorkerVersion = "2266427421";
+  </script>
+  <!-- This script adds the flutter initialization JS code -->
+  <script src="flutter.js" defer></script>
+  <!-- <script src="/init.js"></script> -->
+  <script src="g1s1/init.js"></script>
+  <script src="g2s1/init.js"></script>
+  <script src="g3s1/init.js"></script>
+</head>
+<body>
+  <script>
+    
+        function loader( entrypointUrl) {
+      // Download main.dart.js
+      _flutter.loader.loadEntrypoint({
+        entrypointUrl,
+        serviceWorker: {
+          serviceWorkerUrl: 'flutter_service_worker.js?v=',
+          serviceWorkerVersion: serviceWorkerVersion,
+        },
+        onEntrypointLoaded: async function(engineInitializer) {
+          // Initialize the Flutter engine
+          let appRunner = await engineInitializer.initializeEngine();
+          // Run the app
+          await appRunner.runApp();
+        }
+      });
+    }
+    window.addEventListener('load', function() {
+      console.log(app1, app3, app2)
+      singleSpa.registerApplication({name: 'Flutter APP', app, activeWhen: "/",  customProps(location) {return true}});
+      singleSpa.registerApplication({name: 'Group one Service one', app:app1, activeWhen: "/grouponeservieone",  customProps(location) {return true}});
+      singleSpa.registerApplication({name: 'Group Two service One', app:app2, activeWhen: "/grouptwoserviceone",  customProps(location) {return true}});
+      singleSpa.registerApplication({name: 'Group three SErvice one', app:app3, activeWhen: "/groupthreeserviceone",  customProps(location) {return true}});
+      singleSpa.start();
+    } );
+    const app = {
+  // Optional
+  async bootstrap(props) {
+    console.log("App is initializing!", props);
+  },
+  // Required
+  async mount(props) {
+    console.log("App is mounting", props);
+    loader('base_app.dart.js')
+  },
+  // Required
+  async unmount(props) {
+    console.log("App is unmounting", props);
+    const x = document.querySelector("flt-glass-pane")
+    x.remove()
+  },
+};
+const app1 = {
+  // Optional
+  async bootstrap(props) {
+    console.log("App is initializing!", props);
+  },
+  // Required
+  async mount(props) {
+    console.log("App is mounting", props);
+    loader('base_app.dart.js')
+  },
+  // Required
+  async unmount(props) {
+    console.log("App is unmounting", props);
+    const x = document.querySelector("flt-glass-pane")
+    x.remove()
+  },
+};
+
+const app2 = {
+  // Optional
+  async bootstrap(props) {
+    console.log("App is initializing!", props);
+  },
+  // Required
+  async mount(props) {
+    console.log("App is mounting", props);
+    loader()
+  },
+  // Required
+  async unmount(props) {
+    console.log("App is unmounting", props);
+    const x = document.querySelector("flt-glass-pane")
+    x.remove()
+  },
+};
+
+const app3 = {
+  // Optional
+  async bootstrap(props) {
+    console.log("App is initializing!", props);
+  },
+  // Required
+  async mount(props) {
+    console.log("App is mounting", props);
+    loader()
+  },
+  // Required
+  async unmount(props) {
+    console.log("App is unmounting", props);
+    const x = document.querySelector("flt-glass-pane")
+    x.remove()
+  },
+};
+
+
+
+
+
+
+  </script>
+  
+  
+  
+  
+</body>
+</html>
