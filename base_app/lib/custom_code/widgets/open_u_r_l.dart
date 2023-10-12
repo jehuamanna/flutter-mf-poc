@@ -34,7 +34,7 @@ class _OpenURLState extends State<OpenURL> {
       child: ElevatedButton(
         child: Text('Button'),
         onPressed: () {
-          js.context.callMethod('open', [widget.url]);
+          js.context.callMethod('open', [widget.url, "_self"]);
         },
       ),
     );
