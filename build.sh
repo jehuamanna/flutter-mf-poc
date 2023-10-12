@@ -33,8 +33,8 @@ fi
 mkdir serve-files
 cd serve-files
 cp -r ../base_app/build/web base_app
-cp -r ../g1s1/build/web g1s1
-cp -r ../g2s1/build/web g2s1
-cp -r ../g3s1/build/web g3s1
-# cp -r ../mf/index.html .
+cp -r ../g1s1/build/web grouponeservieone
+cp -r ../g2s1/build/web grouptwoserviceone
+cp -r ../g3s1/build/web groupthreeserviceone
+cp -r ../mf/* .
 cd ..

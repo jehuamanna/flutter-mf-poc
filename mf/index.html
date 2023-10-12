@@ -11,7 +11,6 @@
       
      
     window.addEventListener('load', function() {
-      console.log(app1, app3, app2)
       function loader( entrypointUrl) {
       // Download main.dart.js
       console.log(entrypointUrl)
@@ -29,12 +28,8 @@
         }
       });
     }
-      singleSpa.registerApplication({name: 'Flutter APP', app, activeWhen: "/",  customProps(location) {return true}});
-      singleSpa.registerApplication({name: 'Group one Service one', app:app1, activeWhen: "/grouponeservieone",  customProps(location) {return true}});
-      singleSpa.registerApplication({name: 'Group Two service One', app:app2, activeWhen: "/grouptwoserviceone",  customProps(location) {return true}});
-      singleSpa.registerApplication({name: 'Group three SErvice one', app:app3, activeWhen: "/groupthreeserviceone",  customProps(location) {return true}});
-      singleSpa.start();
-    } );
+      
+
     const app = {
   // Optional
   async bootstrap(props) {
@@ -106,6 +101,14 @@ const app3 = {
   },
 };
 
+
+
+singleSpa.registerApplication({name: 'Flutter APP', app, activeWhen: "/",  customProps(location) {return true}});
+      singleSpa.registerApplication({name: 'Group one Service one', app:app1, activeWhen: "/grouponeservieone",  customProps(location) {return true}});
+      singleSpa.registerApplication({name: 'Group Two service One', app:app2, activeWhen: "/grouptwoserviceone",  customProps(location) {return true}});
+      singleSpa.registerApplication({name: 'Group three SErvice one', app:app3, activeWhen: "/groupthreeserviceone",  customProps(location) {return true}});
+      singleSpa.start();
+} );
 
 
      
